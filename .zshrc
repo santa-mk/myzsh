@@ -10,6 +10,16 @@ SAVEHIST=10000
 setopt no_flow_control
 
 
+# load files for zsh settings
+ZSHHOME="."
+if [ -d $ZSHHOME -a -r $ZSHHOME -a \
+     -x $ZSHHOME ]; then
+    for i in $ZSHHOME/*; do
+        [[ ${i##*/} = *.zsh ]] &&
+            [ \( -f $i -o -h $i \) -a -r $i ] && . $i
+    done
+fi
+
 ### prompt ###
 # PROMPT="%(?.%{${fg[green]}%}.%{${fg[red]}%})%n${reset_color}@${fg[blue]}%m${reset_color}(%*%) %~
 PROMPT="[%F{cyan}%n%f%F{red}@%m%f%F{magenta}:%~%f] %% "
