@@ -11,7 +11,7 @@ setopt no_flow_control
 
 
 # load files for zsh settings
-ZSHHOME="."
+ZSHHOME=$ZDOTDIR
 if [ -d $ZSHHOME -a -r $ZSHHOME -a \
      -x $ZSHHOME ]; then
     for i in $ZSHHOME/*; do
