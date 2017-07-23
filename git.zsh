@@ -2,10 +2,9 @@
 
 # refer to http://qiita.com/nishina555/items/f4f1ddc6ed7b0b296825
 
-# display rprompt for git
-function rprompt-git-current-branch {
+# display prompt for git
+function prompt-git-current-branch {
   local branch_name st branch_status
-
   if [ ! -e  ".git" ]; then
     # don't show no git directory
     return
@@ -38,8 +37,8 @@ function rprompt-git-current-branch {
     color="%F{blue}"
   fi
   # display branch name with color
-  echo "$color [$branch_name]${branch_status}"
+  echo "${color}[$branch_name]${branch_status}"
 }
 
 setopt prompt_subst
-RPROMPT='`rprompt-git-current-branch`'
+PROMPT+='`prompt-git-current-branch`'
