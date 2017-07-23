@@ -14,26 +14,31 @@ function rprompt-git-current-branch {
   st=`git status 2> /dev/null`
   if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
     # clean
-    branch_status="%F{green}"
+    branch_status=""
+    color="%F{green}"
   elif [[ -n `echo "$st" | grep "^Untracked files"` ]]; then
     # untrack
-    branch_status="%F{red}?"
+    branch_status="?"
+    color="%F{red}"
   elif [[ -n `echo "$st" | grep "^Changes not staged for commit"` ]]; then
     # modified
-    branch_status="%F{red}+"
+    branch_status="+"
+    color="%F{red}"
   elif [[ -n `echo "$st" | grep "^Changes to be committed"` ]]; then
     # staged
-    branch_status="%F{yellow}!"
+    branch_status="!"
+    color="%F{yellow}"
   elif [[ -n `echo "$st" | grep "^rebase in progress"` ]]; then
     # conflict
     echo "%F{red}!(conflict)"
     return
   else
     # etc
-    branch_status="%F{blue}"
+    branch_status=""
+    color="%F{blue}"
   fi
   # display branch name with color
-  echo "${branch_status}[$branch_name]"
+  echo "$color [$branch_name]${branch_status}"
 }
 
 setopt prompt_subst
