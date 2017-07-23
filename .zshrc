@@ -11,7 +11,7 @@ setopt no_flow_control
 
 ### prompt ###
 # PROMPT="%(?.%{${fg[green]}%}.%{${fg[red]}%})%n${reset_color}@${fg[blue]}%m${reset_color}(%*%) %~
-PROMPT="[%F{cyan}%n%f%F{red}@%m%f%F{magenta}:%~%f]"
+PROMPT="[%F{cyan}%n%f%F{red}@%m%f%F{magenta}:%~%f]%F{white}[%D/%*]"
 
 # load files for zsh settings
 ZSHHOME=$ZDOTDIR
