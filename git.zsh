@@ -1,5 +1,9 @@
 # -*- coding:utf-8 mode:sh -*-
 
+# git-completion
+autoload -U compinit
+compinit -u
+
 # refer to http://qiita.com/nishina555/items/f4f1ddc6ed7b0b296825
 
 # display prompt for git
