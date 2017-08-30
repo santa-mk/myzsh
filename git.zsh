@@ -5,11 +5,11 @@
 # display prompt for git
 function prompt-git-current-branch {
   local branch_name st branch_status
-  if [ ! -e  ".git" ]; then
+  branch_name=`git rev-parse --abbrev-ref HEAD 2> /dev/null`
+  if [ "${branch_name}" = "" ]; then
     # don't show no git directory
     return
   fi
-  branch_name=`git rev-parse --abbrev-ref HEAD 2> /dev/null`
   st=`git status 2> /dev/null`
   if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
     # clean
