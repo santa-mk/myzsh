@@ -1,1 +1,1 @@
-export PATH="$PATH:$HOME/.cargo/bin:"
+export PATH="$PATH:$HOME/.cargo/bin:$HOME/.nodebrew/current/bin:"
